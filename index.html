@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Site</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <style>
+        body { padding-top:50px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>CSC 331</h1>
+
+        <button onclick="document.getElementById('demo').innerHTML=Date()">The time is?</button>
+        <div id ="myDiv">
+        </div>
+        <p id="demo"></p>
+    </div>
+</div>
+
+<p>The sort() method sorts an array alphabetically.</p>
+<button onclick="sortName()">Try it</button>
+<p id="sortbuttom"></p>
+
+
+
+</body>
+
+
+<script>
+
+
+  //******* ARRAY ************
+  var names = ['Victoria','Grace', 'Ellies', 'Allie' ];
+  document.getElementById("sortbuttom").innerHTML = names;
+
+  function sortName() {
+    names.sort();
+    document.getElementById("sortbuttom").innerHTML = names;
+  }
+
+  //******* SCOPE*************
+  var g = "GLOBAL";
+
+  function myFunction(x) {
+    var x = 'LOCAL';
+    document.getElementById("myDiv").innerHTML =
+    "Im in a function using the: " + g+ 'vairable';
+
+  }
+
+  myFunction();
+  //assign a function to a variable
+  var func = function (param) {
+    return param;
+  }
+  document.body.innerHTML += func("Wake Forest Computer Science Department");
+
+  //pass a function as an argument to another function
+
+
+  //callback
+  function functionOne(x){
+    alert(x);
+  }
+
+  //call back
+  //uses the alert from functionOne
+  function functionTwo(var1, callback){
+    callback(var1);
+
+  }
+  functionTwo('Press OK to continue', functionOne);
+
+  //vauge function example
+  function functionThree(var1, callback1, callback2){
+    callback1(var1);
+    callback2(var1);
+    // function (var1) { alert(x+2); });
+  }
+  //functionThree(2, functionOne, function (x) {alert(x+2);});
+
+
+
+</script>
+</html>
